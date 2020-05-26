@@ -1,20 +1,17 @@
 import { initialState } from "../store/root.state";
 import { ActionWithPayload } from "../../types/redux/action.with.payload";
 import { ApplicationState } from "../../types/redux/application.state";
-import { ActionTypes } from "../../types/redux/action.types";
+import { ActionType } from "../../types/redux/action.types";
 
-const ApplicationStateReducer = (
+const applicationStateReducer = (
   state: ApplicationState = initialState.appState,
   action: ActionWithPayload<ApplicationState>
 ) => {
-  switch (action.type) {
-    case ActionTypes.AppAvailable:
-      return ApplicationState.Available;
-    case ActionTypes.AppBusy:
-      return action.payload;
+  if (action.type === ActionType.ApplicationState) {
+    return action.payload;
   }
 
   return state;
 };
 
-export default ApplicationStateReducer;
+export default applicationStateReducer;
