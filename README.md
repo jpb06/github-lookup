@@ -20,3 +20,7 @@ Typescript is used for the entire codebase.
 - Framework : Express
 - Communication with github api : axios
 - security : json web tokens
+
+## Demo
+
+![Use case](./misc/lookup.png)
