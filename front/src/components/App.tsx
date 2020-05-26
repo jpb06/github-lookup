@@ -7,6 +7,7 @@ import AppSnackbar from "./generic/snackbar/AppSnackbar";
 import LoggedInContainer from "./logged-in/LoggedInContainer";
 import Home from "./logged-in/home/Home";
 import LoginCallback from "./public/login-callback/LoginCallback";
+import Profile from "./logged-in/profile/Profile";
 
 const App = () => {
   return (
@@ -18,6 +19,12 @@ const App = () => {
         <Route
           path="/home"
           render={(props) => <LoggedInContainer Component={Home} {...props} />}
+        />
+        <Route
+          path="/profile"
+          render={(props) => (
+            <LoggedInContainer Component={Profile} {...props} />
+          )}
         />
       </Router>
       <AppSnackbar />
