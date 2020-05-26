@@ -1,6 +1,6 @@
 import { Application } from "express";
 import { Request, Response } from "express-serve-static-core";
-import { validationResult, query } from "express-validator";
+import { query } from "express-validator";
 import { withInputFeedback } from "../../middleware/validation.errors.middleware";
 
 const mapGetAuthorizeUrlRoute = (server: Application) => {
@@ -18,7 +18,7 @@ const mapGetAuthorizeUrlRoute = (server: Application) => {
       const domain = process.env.GITHUB_DOMAIN as string;
       const clientId = process.env.GITHUB_CLIENT_ID as string;
       const redirectUrl = process.env.GITHUB_REDIRECT_URI as string;
-      const authorizeUrl = `${domain}/authorize?scope=${scope}&client_id=${clientId}&redirect_uri=${redirectUrl}&state=${state}`;
+      const authorizeUrl = `${domain}/authorize?client_id=${clientId}&scope=${scope}&state=${state}`;
 
       return res.populate(authorizeUrl);
     }
