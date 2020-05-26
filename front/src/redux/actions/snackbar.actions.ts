@@ -1,8 +1,8 @@
-import { ActionTypes } from "../../types/redux/action.types";
 import { SnackbarType } from "../../types/app/snackbar.data.type";
+import { ActionType } from "../../types/redux/action.types";
 
 export const showSnackbarSaga = (type: SnackbarType, text: string) => ({
-  type: ActionTypes.SnackbarSaga,
+  type: ActionType.SnackbarSaga,
   payload: {
     isOpen: true,
     type,
@@ -11,5 +11,5 @@ export const showSnackbarSaga = (type: SnackbarType, text: string) => ({
 });
 
 export const clearSnackbar = () => ({
-  type: ActionTypes.ClearSnackbar,
+  type: ActionType.ClearSnackbar,
 });
