@@ -1,11 +1,14 @@
 import { ApplicationState } from "../../types/redux/application.state";
 import { SnackbarData, SnackbarType } from "../../types/app/snackbar.data.type";
-import { Session } from "../../types/app/session.type";
+import { User } from "../../types/app/user.type";
+import { CodeSearchResult } from "../../types/api/code.search.result";
 
 export interface RootState {
   readonly appState: ApplicationState;
   readonly snackbar: SnackbarData;
-  readonly session: Session;
+  readonly user: User | null;
+  readonly isApiConfigured: boolean;
+  readonly codeSearchResults: CodeSearchResult | null;
 }
 
 export const initialState: RootState = {
@@ -15,5 +18,7 @@ export const initialState: RootState = {
     type: SnackbarType.Error,
     text: "",
   },
-  session: {},
+  user: null,
+  isApiConfigured: false,
+  codeSearchResults: null,
 };

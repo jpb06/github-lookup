@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./../reducers";
 import { RootState } from "./root.state";
 import createSagaMiddleware from "redux-saga";
-import snackbarSaga from "../sagas/snackbar.saga";
+import { runSagas } from "./run.sagas";
 
 export default function configureStore(preloadedState?: RootState) {
   const sagaMiddleware = createSagaMiddleware();
@@ -14,7 +14,7 @@ export default function configureStore(preloadedState?: RootState) {
   );
 
   // then run the saga
-  sagaMiddleware.run(snackbarSaga);
+  runSagas(sagaMiddleware);
 
   return store;
 }
