@@ -14,13 +14,13 @@ export const getAuthorizeUrl = async (): Promise<ApiResponse<string>> => {
 
     return {
       success: false,
-      error: { status: result.status, message: result.data },
+      error: result.data,
     };
   } catch (error) {
     console.log("error", error);
     return {
       success: false,
-      error: { status: 400, message: error.message },
+      error: error.message,
     };
   }
 };
