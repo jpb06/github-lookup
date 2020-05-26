@@ -2,10 +2,10 @@
   "name": "github-lookup-dev-api",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/book-store-api.js",
+  "main": "dist/github-lookup-api.js",
   "scripts": {
     "prestart": "del-cli ./dist && tsc",
-    "start": "node dist/book-store-api.js"
+    "start": "node dist/github-lookup-api.js"
   },
   "author": "jpb06",
   "license": "ISC",
@@ -26,6 +26,6 @@
     "@types/express-validator": "^3.0.0",
     "@types/jsonwebtoken": "^8.5.0",
     "del-cli": "^3.0.1",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.3"
   }
 }

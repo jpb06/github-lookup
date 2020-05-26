@@ -19,6 +19,7 @@ import mapGetAuthorizeUrlRoute from "./routes/anonymous/get.authorize.url.route.
 import { Configuration as RsaStoreConfiguration } from "rsa-vault";
 import { getRsaVaultConfig } from "./logic/util/config.util.js";
 import mapGetUserRoute from "./routes/logged-in/get.user.route.js";
+import mapSearchCodeRoute from "./routes/logged-in/search.code.route.js";
 RsaStoreConfiguration.Setup(getRsaVaultConfig());
 
 const app: Express = express();
@@ -28,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(extendsImplementation);
 
 // simulate delay
-app.use((req, res, next) => setTimeout(next, 1500));
+app.use((req, res, next) => setTimeout(next, 200));
 
 // anonymous
 mapGetAuthorizeUrlRoute(app);
@@ -36,6 +37,7 @@ mapLoginRoute(app);
 
 // logged in
 mapGetUserRoute(app);
+mapSearchCodeRoute(app);
 
 app.use(ErrorHandler);
 app.use(NoRouteErrorHandler);
