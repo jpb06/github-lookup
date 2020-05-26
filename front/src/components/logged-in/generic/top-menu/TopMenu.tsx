@@ -6,11 +6,20 @@ import { AppBar, Avatar } from "@material-ui/core";
 import styles from "./TopMenu.styles";
 import LeftMenu from "../left-menu/LeftMenu";
 import Logo from "../../../generic/logo/Logo";
+import { User } from "../../../../types/app/user.type";
+import { useHistory } from "react-router-dom";
 
-const Topbar = () => {
+interface TopbarProps {
+  user: User;
+}
+
+const Topbar: React.FC<TopbarProps> = ({ user }) => {
   const classes = styles();
+  const history = useHistory();
 
   const [isSiderOpen, setIsSiderOpen] = React.useState(false);
+
+  const handleGoToProfile = () => history.push("/profile");
 
   const toggleDrawer = (isOpen: boolean) => (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | any
@@ -40,7 +49,7 @@ const Topbar = () => {
             <MenuIcon />
           </IconButton>
           <Logo />
-          <Avatar />
+          <Avatar src={user.avatar_url} onClick={handleGoToProfile} />
         </Toolbar>
       </AppBar>
 
