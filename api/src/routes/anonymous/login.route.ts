@@ -1,13 +1,13 @@
 import { Application } from "express";
 import { Request, Response } from "express-serve-static-core";
-import { body, validationResult } from "express-validator";
-import { CacheService } from "../../logic/cache.service";
+import { body } from "express-validator";
+import { CachedUsersService } from "../../logic/services/cached.users.service";
 import {
   getAccessToken,
   AccessToken,
 } from "../../logic/github-api/get.access.token";
 import { getUserData } from "../../logic/github-api/get.user.data";
-import { JwtService } from "../../logic/jwt.service";
+import { JwtService } from "../../logic/services/jwt.service";
 import { withInputFeedback } from "../../middleware/validation.errors.middleware";
 
 const mapLoginRoute = (server: Application) => {
@@ -28,7 +28,7 @@ const mapLoginRoute = (server: Application) => {
         if (!userData.success)
           return res.answer(400, "Unable to get user profile");
 
-        CacheService.SetUser({
+        CachedUsersService.Set({
           ...userData.data,
           token_type: accessToken.data?.type,
           access_token: accessToken.data?.token,

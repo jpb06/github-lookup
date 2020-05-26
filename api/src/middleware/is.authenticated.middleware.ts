@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { JwtService } from "../logic/jwt.service";
+import { JwtService } from "../logic/services/jwt.service";
 
 function getToken(req: Request): string {
   const authorizationHeaders = req.headers.authorization || "";
