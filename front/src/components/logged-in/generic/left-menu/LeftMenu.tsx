@@ -1,7 +1,7 @@
 import React from "react";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import List from "@material-ui/core/List";
-import StyleIcon from "@material-ui/icons/Style";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import HomeIcon from "@material-ui/icons/Home";
 import Divider from "@material-ui/core/Divider";
 import clsx from "clsx";
@@ -51,7 +51,7 @@ const LeftMenu: React.FC<LeftMenuProps> = ({ isOpen, toggleDrawer }) => {
           <LeftMenuItem
             menuText="Logout"
             fullText="Logout"
-            IconComponent={StyleIcon}
+            IconComponent={ExitToAppIcon}
             onClick={handleLogout}
           />
         </List>
