@@ -23,4 +23,4 @@ Typescript is used for the entire codebase.
 
 ## Demo
 
-![Use case](./misc/lookup.png)
+![Use case](./project-utils/img/lookup.png)
