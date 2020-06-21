@@ -5,7 +5,7 @@ import { withInputFeedback } from "../../middleware/validation.errors.middleware
 
 const mapGetAuthorizeUrlRoute = (server: Application) => {
   server.get(
-    "/authorize-url",
+    "/api/authorize-url",
     [
       query("scope").not().isEmpty().withMessage("scope cannot be empty"),
       query("state").not().isEmpty().withMessage("state cannot be empty"),

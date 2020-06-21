@@ -12,7 +12,7 @@ import { withInputFeedback } from "../../middleware/validation.errors.middleware
 
 const mapLoginRoute = (server: Application) => {
   server.post(
-    "/login",
+    "/api/login",
     [
       body("code").not().isEmpty().withMessage("the code wasn't provided"),
       body("state").not().isEmpty().withMessage("state wasn't provided"),
