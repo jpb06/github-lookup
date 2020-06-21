@@ -8,7 +8,7 @@ import { body } from "express-validator";
 
 const mapSearchCodeRoute = (server: Application) => {
   server.post(
-    "/search/code",
+    "/api/search/code",
     isAuthenticated,
     [
       body("language")

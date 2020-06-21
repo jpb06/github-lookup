@@ -22,3 +22,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.env*
+
+# deploy
+/project-utils/deploy/pscp.exe
+/project-utils/deploy/private
+deploy.config*
+nginx.config
+release/
